@@ -23,11 +23,14 @@ def callback(data):
     "latitude": latitude,
     "longitude": longitude
     }
-    try:
-        results = db.child("locationCar").update(data)
-    except Exception:
-        print("Error SentData")
-    #Call for the programName(longitude,latitude)
+    if (latitude<=0) or (longitude<=0):
+    	pass
+    else:	
+    	try:	
+        	results = db.child("Rover1/location/rover").update(data)
+    	except Exception:
+        	print("Error SentData")
+    	#Call for the programName(longitude,latitude)
 
 def infoGetter():
 
